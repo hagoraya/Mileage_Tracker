@@ -32,6 +32,12 @@ router.route('/:id').get((req, res) => {
     Trip.findById(req.params.id)
         .then(trip => res.json(trip))
         .catch(err => res.status(400).json('Error while getting trip with id: ' + err));
-})
+});
+
+router.route('/delete/:id').delete((req, res) => {
+    Trip.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Trip deleted'))
+        .catch((err) => res.status(400).json('Error while deleting trip: ' + err));
+});
 
 module.exports = router;
