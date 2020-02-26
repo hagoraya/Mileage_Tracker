@@ -6,7 +6,7 @@ const tripSchema = new Schema({
     name: { type: String, required: true },
     distance: { type: Number, required: true },
     fuel_price: { type: Number, required: true },
-    date: { type: Date, required: true },
+    date: { type: Date, default: Date.now },
 }, {
     timestamps: true,
 });
