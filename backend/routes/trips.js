@@ -40,4 +40,19 @@ router.route('/delete/:id').delete((req, res) => {
         .catch((err) => res.status(400).json('Error while deleting trip: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+    Trip.findById(req.params.id)
+        .then(trip => {
+            trip.name = req.body.name;
+            trip.distance = req.body.distance;
+            trip.fuel_price = req.body.fuel_price;
+            trip.date = Date.parse(req.body.date);
+
+            trip.save()
+                .then(() => res.json('Trip updated'))
+                .catch((err) => res.status(400).json('Error while updating trip: ' + err));
+        })
+        .catch((err) => res.status(400).json('Error while getting trip to update: ' + err));
+});
+
 module.exports = router;
