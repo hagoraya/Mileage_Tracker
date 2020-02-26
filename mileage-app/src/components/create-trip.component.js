@@ -16,7 +16,7 @@ export default class CreateExercise extends Component {
         this.state = {
             name: '',
             distance: '',
-            fuelprice: 0,
+            fuelprice: '',
             date: new Date(),
         }
     }
@@ -62,7 +62,7 @@ export default class CreateExercise extends Component {
 
         console.log(exercise);
 
-        window.location = '/';
+        //window.location = '/';
     }
 
     render() {
@@ -81,7 +81,7 @@ export default class CreateExercise extends Component {
                     </div>
                     <div className="form-group">
                         <label>Distance: </label>
-                        <input type="text"
+                        <input type="number"
                             required
                             className="form-control"
                             value={this.state.distance}
@@ -91,7 +91,7 @@ export default class CreateExercise extends Component {
                     <div className="form-group">
                         <label>Fuel Price: </label>
                         <input
-                            type="text"
+                            type="number"
                             className="form-control"
                             value={this.state.fuelprice}
                             onChange={this.onChangeFuelprice}
