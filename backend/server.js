@@ -18,6 +18,11 @@ connection.once('open', () => {
     console.log("MongoDB database connected");
 });
 
+const tripRouter = require('./routes/trips');
+
+app.use('/trips', tripRouter);
+
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
