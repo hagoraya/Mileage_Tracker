@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css"
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
 
-export default class CreateTrip extends Component {
+export default class CreateExercise extends Component {
     constructor(props) {
         super(props);
 
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeDistance = this.onChangeDistance.bind(this);
+        this.onChangeFuelprice = this.onChangeFuelprice.bind(this);
+        this.onChangeDate = this.onChangeDate.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
         this.state = {
             name: '',
-            distance: 0,
-            fuel_price: 0,
-            date: new Date()
+            distance: '',
+            fuelprice: 0,
+            date: new Date(),
         }
+    }
+
+    componentDidMount() {
+
+
     }
 
     onChangeName(e) {
@@ -27,9 +38,9 @@ export default class CreateTrip extends Component {
         })
     }
 
-    onChangeFuel_price(e) {
+    onChangeFuelprice(e) {
         this.setState({
-            fuel_price: e.target.value
+            fuelprice: e.target.value
         })
     }
 
@@ -42,50 +53,48 @@ export default class CreateTrip extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const trip = {
+        const exercise = {
             name: this.state.name,
             distance: this.state.distance,
-            fuel_price: this.state.fuel_price,
+            fuelprice: this.state.fuelprice,
             date: this.state.date
         }
 
-        console.log(trip);
+        console.log(exercise);
 
         window.location = '/';
-
     }
-
 
     render() {
         return (
             <div>
-                <h3>Create Trip</h3>
+                <h3>Create New Exercise Log</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Name: </label>
-                        <input type="string"
+                        <input ref="userInput"
                             required
                             className="form-control"
                             value={this.state.name}
-                            onChange={this.onChangeName}
-                        />
+                            onChange={this.onChangeName}>
+                        </input>
                     </div>
                     <div className="form-group">
-                        <label>Distance (in Km): </label>
-                        <input
-                            type="number"
+                        <label>Distance: </label>
+                        <input type="text"
+                            required
                             className="form-control"
                             value={this.state.distance}
                             onChange={this.onChangeDistance}
                         />
                     </div>
                     <div className="form-group">
-                        <label>Fuel Price (in minutes): </label>
+                        <label>Fuel Price: </label>
                         <input
-                            type="number"
+                            type="text"
                             className="form-control"
-                            value={this.state.fuel_price}
-                            onChange={this.onChangeFuel_price}
+                            value={this.state.fuelprice}
+                            onChange={this.onChangeFuelprice}
                         />
                     </div>
                     <div className="form-group">
@@ -99,7 +108,7 @@ export default class CreateTrip extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Add Trip" className="btn btn-primary" />
+                        <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
