@@ -27,4 +27,11 @@ router.route('/add').post((req, res) => {
 
 });
 
+
+router.route('/:id').get((req, res) => {
+    Trip.findById(req.params.id)
+        .then(trip => res.json(trip))
+        .catch(err => res.status(400).json('Error while getting trip with id: ' + err));
+})
+
 module.exports = router;
