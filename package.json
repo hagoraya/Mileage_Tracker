@@ -1,0 +1,12 @@
+{
+  "name": "mileage-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "cd backend && npm run serve && cd .. && cd mileage-app && npm start && cd .."
+  },
+  "author": "",
+  "license": "ISC"
+}
