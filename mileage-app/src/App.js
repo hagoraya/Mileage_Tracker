@@ -10,13 +10,19 @@ import EditTrip from "./components/edit-trip.component";
 
 function App() {
   return (
+
     <Router>
       <Navbar></Navbar>
       <br></br>
-      <Route path="/" exact component={TripList}></Route>
-      <Route path="/create" component={CreateTrip}></Route>
-      <Route path="/edit/:id" component={EditTrip}></Route>
+      <div className="container">
+
+
+        <Route path="/" exact component={TripList}></Route>
+        <Route path="/create" component={CreateTrip}></Route>
+        <Route path="/edit/:id" component={EditTrip}></Route>
+      </div>
     </Router>
+
 
   );
 }
