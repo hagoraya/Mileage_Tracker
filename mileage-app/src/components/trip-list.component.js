@@ -21,7 +21,10 @@ export default class ListTrip extends Component {
         super(props);
 
         this.deleteTrip = this.deleteTrip.bind(this);
-        this.state = { trips: [] };
+        this.state = {
+            trips: [],
+            alert_message: '',
+        };
     }
 
 
@@ -33,9 +36,23 @@ export default class ListTrip extends Component {
                 })
             })
             .catch((err) => {
-                console.log('Error while getting trips: ' + err)
+                console.log('Error while getting trips: ' + err);
+                this.setState({
+                    alert_message: 'error'
+                });
+
+
             })
     }
+
+    showAlert() {
+        if (this.state.alert_message === 'error') {
+            return <div className="alert alert-danger" role="alert">Cannot connect to datebase</div>
+        } else {
+            return (null)
+        }
+    }
+
 
 
     deleteTrip(id) {
@@ -71,6 +88,7 @@ export default class ListTrip extends Component {
                         {this.tripList()}
                     </tbody>
                 </table>
+                {this.showAlert()}
             </div>
         )
     }
