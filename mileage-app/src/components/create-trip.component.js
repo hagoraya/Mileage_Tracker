@@ -9,14 +9,14 @@ export default class CreateExercise extends Component {
 
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDistance = this.onChangeDistance.bind(this);
-        this.onChangeFuelprice = this.onChangeFuelprice.bind(this);
+        this.onChangefuel_price = this.onChangefuel_price.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
-            distance: '',
-            fuelprice: '',
+            distance: 0,
+            fuel_price: 0,
             date: new Date(),
         }
     }
@@ -38,9 +38,9 @@ export default class CreateExercise extends Component {
         })
     }
 
-    onChangeFuelprice(e) {
+    onChangefuel_price(e) {
         this.setState({
-            fuelprice: e.target.value
+            fuel_price: e.target.value
         })
     }
 
@@ -53,15 +53,17 @@ export default class CreateExercise extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const exercise = {
+        const trip = {
             name: this.state.name,
             distance: this.state.distance,
-            fuelprice: this.state.fuelprice,
+            fuel_price: this.state.fuel_price,
             date: this.state.date
         }
 
-        console.log(exercise);
+        console.log(trip);
 
+        axios.post('http://localhost:5000/trips/add', trip)
+            .then(res => console.log(res.data));
         //window.location = '/';
     }
 
@@ -93,8 +95,8 @@ export default class CreateExercise extends Component {
                         <input
                             type="number"
                             className="form-control"
-                            value={this.state.fuelprice}
-                            onChange={this.onChangeFuelprice}
+                            value={this.state.fuel_price}
+                            onChange={this.onChangefuel_price}
                         />
                     </div>
                     <div className="form-group">
