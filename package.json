@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "cd backend && npm run serve && cd .. && cd mileage-app && npm start && cd .."
+    "front-end": "cd mileage-app && npm start",
+    "back-end": "cd backend && npm run serve",
+    "dev": "concurrently \"npm run front-end\" \"npm run back-end\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
 }
