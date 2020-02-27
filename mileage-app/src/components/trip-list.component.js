@@ -49,7 +49,7 @@ export default class ListTrip extends Component {
 
     tripList() {
         return this.state.trips.map(currentTrip => {
-            return <Trip trip={currentTrip} deleteTrip={this.deleteTrip} ket={currentTrip._id}></Trip>
+            return <Trip trip={currentTrip} deleteTrip={this.deleteTrip} key={currentTrip._id}></Trip>
         })
     }
 
