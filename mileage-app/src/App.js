@@ -15,7 +15,7 @@ function App() {
       <br></br>
       <Route path="/" exact component={TripList}></Route>
       <Route path="/create" component={CreateTrip}></Route>
-      <Route path="/edit/id" component={EditTrip}></Route>
+      <Route path="/edit/:id" component={EditTrip}></Route>
     </Router>
 
   );
