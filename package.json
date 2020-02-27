@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "front-end": "cd mileage-app && npm start",
-    "back-end": "cd backend && npm run serve",
-    "dev": "concurrently \"npm run front-end\" \"npm run back-end\"",
-    "heroku-postbuild": "npm run dev"
+    "back-end-local": "cd backend && npm run serve-local",
+    "back-end-heroku": "cd backend && npm run serve-heroku",
+    "dev": "concurrently \"npm run front-end\" \"npm run back-end-local\"",
+    "heroku-build": "concurrently \"npm run front-end\" \"npm run back-end-heroku\"",
+    "heroku-postbuild": "npm run heroku-build"
   },
   "author": "",
   "license": "ISC",

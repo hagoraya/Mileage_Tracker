@@ -1,1 +1,1 @@
-web: npm run dev
+web: rpm run heroku-build
