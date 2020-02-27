@@ -16,8 +16,8 @@ export default class CreateExercise extends Component {
 
         this.state = {
             name: '',
-            distance: 0,
-            fuel_price: 0,
+            distance: '',
+            fuel_price: '',
             date: new Date(),
         }
     }
@@ -65,7 +65,7 @@ export default class CreateExercise extends Component {
 
         axios.post('http://localhost:5000/trips/add', trip)
             .then(res => console.log(res.data));
-        window.location = '/';
+
     }
 
     render() {
