@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "front-end": "cd mileage-app && npm start",
     "back-end": "cd backend && npm run serve",
-    "dev": "concurrently \"npm run front-end\" \"npm run back-end\""
+    "dev": "concurrently \"npm run front-end\" \"npm run back-end\"",
+    "heroku-postbuild": "npm run dev"
   },
   "author": "",
   "license": "ISC",
