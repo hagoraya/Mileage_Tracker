@@ -19,6 +19,7 @@ export default class CreateExercise extends Component {
             distance: '',
             fuel_price: '',
             date: new Date(),
+            alert_message: '',
         }
     }
 
@@ -64,14 +65,30 @@ export default class CreateExercise extends Component {
         console.log(trip);
 
         axios.post('http://localhost:5000/trips/add', trip)
-            .then(res => console.log(res.data));
+            .then(res => {
+                console.log(res.data);
+                this.setState({ alert_message: 'success' })
+            })
+            .catch(err => {
+                this.setState({ alert_message: 'error' })
+            })
 
+    }
+
+    showAlert() {
+        if (this.state.alert_message === 'success') {
+            return <div class="alert alert-primary" role="alert"> Trip Added </div>
+        } else if (this.state.alert_message === 'success') {
+            return <div class="alert alert-danger" role="alert"> Error </div>
+        } else {
+            return (null)
+        }
     }
 
     render() {
         return (
             <div>
-                <h3>Create New Exercise Log</h3>
+                <h3>Add Trip</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Name: </label>
@@ -111,9 +128,10 @@ export default class CreateExercise extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+                        <input type="submit" value="Add" className="btn btn-primary" />
                     </div>
                 </form>
+                {this.showAlert()}
             </div>
         )
     }
