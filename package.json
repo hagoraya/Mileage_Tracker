@@ -10,7 +10,9 @@
     "back-end-heroku": "cd backend && npm run serve-heroku",
     "dev": "concurrently \"npm run front-end\" \"npm run back-end-local\"",
     "heroku-build": "concurrently \"npm run front-end\" \"npm run back-end-heroku\"",
-    "heroku-postbuild": "npm run heroku-build"
+    "heroku-postbuild": "npm run  build",
+    "build": "concurrently \"cd mileage-app && npm run  build\" \"cd backend && npm run build\"",
+    "start:prod": "cd backed && npm  run start:prod"
   },
   "author": "",
   "license": "ISC",

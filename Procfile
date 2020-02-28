@@ -1,1 +1,1 @@
-web: rpm run heroku-build
+web: rpm run start:prod
