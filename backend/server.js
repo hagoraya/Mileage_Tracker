@@ -1,7 +1,6 @@
 const cors = require('cors');
 const mongoose = require('mongoose');
 const express = require('express');
-import path from 'path';
 
 
 
@@ -11,9 +10,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 
-const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+//const staticFiles = express.static(path.join(__dirname, '../../client/build'))
 
-app.use(staticFiles);
+//app.use(staticFiles);
 app.use(cors());
 app.use(express.json());
 
