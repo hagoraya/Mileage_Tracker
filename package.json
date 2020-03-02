@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run front-end\" \"npm run back-end-local\"",
     "heroku-build": "concurrently \"npm run front-end\" \"npm run back-end-heroku\"",
     "heroku-postbuild": "npm run  build",
-    "build": "concurrently \"cd mileage-app && npm run  build\" \"cd backend && npm run serve-heroku\"",
+    "build": "concurrently \"cd mileage-app && npm run build\" \"cd backend && npm run serve-heroku\"",
     "start:prod": "cd backend && npm  run start:prod"
   },
   "author": "",
