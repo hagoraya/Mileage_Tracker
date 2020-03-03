@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "mileage-app", "build")))
 
-const uri = process.env.MONGO_ATLAS_URI;
+const uri = process.env.MONGOD_URL;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
