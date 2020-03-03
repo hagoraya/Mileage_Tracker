@@ -5,13 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "front-end": "cd mileage-app && npm run start",
-    "back-end-local": "node server.js",
-    "back-end-heroku": "cd backend && npm run serve-heroku",
     "dev": "concurrently \"npm run front-end\" \"npm run back-end-local\"",
-    "heroku-build": "npm run back-end-heroku",
-    "heroku-postbuild": "cd mileage-app && npm install --only=dev && npm install && npm run build",
-    "build": "concurrently \"cd mileage-app && npm run start\" \"cd backend && npm run serve-heroku\"",
+    "heroku-postbuild": "cd mileage-app && npm install && npm run build",
     "start": "npm install && node server.js"
   },
   "author": "",
