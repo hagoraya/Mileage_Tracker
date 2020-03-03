@@ -8,7 +8,7 @@
     "serve-local": "nodemon server.js",
     "serve-heroku": "node server.js",
     "build": "babel . --ignore node_modules,build --out-dir build",
-    "start:prod": "node build/server.js"
+    "start": "node server,js"
   },
   "author": "",
   "license": "ISC",
