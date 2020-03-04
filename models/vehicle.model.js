@@ -7,6 +7,6 @@ const vehicleSchema = new Schema({
     fuel_economy: { type: Number, required: true },
 });
 
-const VehicleTrip = mongoose.model('Vehicle', vehicleSchemaSchema);
+const VehicleTrip = mongoose.model('Vehicle', vehicleSchema);
 
 module.exports = VehicleTrip;

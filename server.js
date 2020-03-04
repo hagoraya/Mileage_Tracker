@@ -27,8 +27,11 @@ connection.once('open', () => {
 });
 
 const tripRouter = require('./routes/trips');
+const vehicleRouter = require('./routes/vehicle');
 
 app.use('/trips', tripRouter);
+app.use('/vehicle', vehicleRouter);
+
 
 
 if (process.env.NODE_ENV === 'production') {
