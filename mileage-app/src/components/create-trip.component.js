@@ -13,6 +13,7 @@ export default class CreateExercise extends Component {
         this.onChangefuel_price = this.onChangefuel_price.bind(this);
         this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeVehicle = this.onChangeVehicle.bind(this)
 
         this.state = {
             name: '',
@@ -65,6 +66,12 @@ export default class CreateExercise extends Component {
         })
     }
 
+    onChangeVehicle(e) {
+        this.setState({
+            vehicle: e.target.value
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -103,6 +110,23 @@ export default class CreateExercise extends Component {
             <div>
                 <h3>Add Trip</h3>
                 <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label>Vehicle: </label>
+                        <select ref="userInput"
+                            required
+                            className="form-control"
+                            value={this.state.vehicle}
+                            onChange={this.onChangeVehicle}>
+                            {
+                                this.state.vehicles.map(function (vhi) {
+                                    return <option
+                                        key={vhi}
+                                        value={vhi}>{vhi}
+                                    </option>;
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className="form-group">
                         <label>Name: </label>
                         <input ref="userInput"
