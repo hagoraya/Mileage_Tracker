@@ -11,12 +11,14 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const name = req.body.name;
     const distance = req.body.distance;
+    const vehicle = req.body.vehicle;
     const fuel_price = req.body.fuel_price;
     const date = Date.parse(req.body.date);
 
     const newTrip = new Trip({
         name,
         distance,
+        vehicle,
         fuel_price,
         date,
     });

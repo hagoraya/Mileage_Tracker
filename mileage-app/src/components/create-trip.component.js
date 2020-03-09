@@ -78,8 +78,10 @@ export default class CreateExercise extends Component {
         const trip = {
             name: this.state.name,
             distance: this.state.distance,
+            vehicle: this.state.vehicle,
             fuel_price: this.state.fuel_price,
             date: this.state.date
+
         }
 
         console.log(trip);
@@ -97,9 +99,9 @@ export default class CreateExercise extends Component {
 
     showAlert() {
         if (this.state.alert_message === 'success') {
-            return <div class="alert alert-primary" role="alert"> Trip Added </div>
+            return <div className="alert alert-primary" role="alert"> Trip Added </div>
         } else if (this.state.alert_message === 'success') {
-            return <div class="alert alert-danger" role="alert"> Error </div>
+            return <div className="alert alert-danger" role="alert"> Error </div>
         } else {
             return (null)
         }

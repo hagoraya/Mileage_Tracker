@@ -7,12 +7,13 @@ const Trip = props => (
     <tr>
         <td>{props.trip.name}</td>
         <td>{props.trip.distance}</td>
+        <td>{props.trip.vehicle}</td>
         <td>{props.trip.fuel_price}</td>
         <td>{props.trip.date.substring(0, 10)}</td>
         <td>
             <Link to={"/edit/" + props.trip._id}>Edit</Link> | <a href="#" onClick={() => { props.deleteTrip(props.trip._id) }}>Delete</a>
-
         </td>
+
     </tr>
 )
 
@@ -47,7 +48,7 @@ export default class ListTrip extends Component {
 
     showAlert() {
         if (this.state.alert_message === 'error') {
-            return <div className="alert alert-danger" role="alert">Cannot connect to datebase</div>
+            return <div className="alert alert-danger" role="alert">Cannot connect to database</div>
         } else {
             return (null)
         }
@@ -79,6 +80,7 @@ export default class ListTrip extends Component {
                         <tr>
                             <th>Name</th>
                             <th>Distance</th>
+                            <th>Vehicle</th>
                             <th>Fuel Price</th>
                             <th>Date</th>
                             <th>Actions</th>
