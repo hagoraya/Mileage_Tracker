@@ -20,11 +20,24 @@ export default class CreateExercise extends Component {
             fuel_price: '',
             date: new Date(),
             alert_message: '',
+            vehicles: [],
+            vehicle: ''
         }
     }
 
     componentDidMount() {
-
+        axios.get('http://localhost:5000/vehicle/')
+            .then(response => {
+                if (response.data.length > 0) {
+                    this.setState({
+                        vehicles: response.data.map(vehicle => vehicle.name),
+                        vehicle: response.data[0].name
+                    })
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
     }
 
