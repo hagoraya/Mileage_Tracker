@@ -36,10 +36,22 @@ router.route('/:id').get((req, res) => {
         .catch(err => res.status(400).json('Error while getting trip with id: ' + err));
 });
 
-router.route('/delete/:id').delete((req, res) => {
-    Trip.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Trip deleted'))
-        .catch((err) => res.status(400).json('Error while deleting trip: ' + err));
+// router.route('/delete/:id').delete((req, res) => {
+//     Trip.findByIdAndDelete(req.params.id)
+//         .then(() => res.json('Trip deleted'))
+//         .catch((err) => res.status(400).json('Error while deleting trip: ' + err));
+// });
+
+router.delete('/delete/:id', function (req, res) {
+    var id = req.params.id;
+    Trip.findByIdAndDelete({ _id: id }, function (err) {
+        if (err) {
+            console.log(err)
+            return res.status(500).send();
+        }
+
+        return res.status(500).send();
+    });
 });
 
 router.route('/update/:id').post((req, res) => {

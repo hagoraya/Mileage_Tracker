@@ -57,7 +57,7 @@ export default class ListTrip extends Component {
 
 
     deleteTrip(id) {
-        axios.delete('https://localhost:5000/trips/delete/' + id)
+        axios.delete('http://localhost:5000/trips/delete/' + id)
             .then(res => { console.log('Deleted Trip') });
 
         this.setState({
