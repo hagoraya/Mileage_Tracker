@@ -8,6 +8,7 @@ import TripList from "./components/trip-list.component";
 import CreateTrip from "./components/create-trip.component";
 import EditTrip from "./components/edit-trip.component";
 import CreateVehicle from "./components/create-vehicle.component";
+import TotalResult from "./components/total-result.component";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create" component={CreateTrip}></Route>
         <Route path="/edit/:id" component={EditTrip}></Route>
         <Route path="/vehicle" component={CreateVehicle}></Route>
+        <TotalResult></TotalResult>
       </div>
     </Router>
 
