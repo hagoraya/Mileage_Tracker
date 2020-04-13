@@ -6,3 +6,4 @@ backend/node_modules
 mileage-app/node_modules
 mileage-app/build
 
+.env

@@ -19,7 +19,7 @@ app.use(express.json());
 
 
 const uri = process.env.MONGODB_URI;
-mongoose.connect('mongodb+srv://harry:164d4f@cluster0-kenzv.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
 connection.once('open', () => {
