@@ -15,6 +15,7 @@ export default class CreateVehicle extends Component {
         }
     }
 
+
     onChangeName(e) {
         this.setState({
             name: e.target.value
