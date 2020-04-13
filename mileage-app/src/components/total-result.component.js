@@ -8,7 +8,13 @@ export default class Navbar extends Component {
 
 
     findtotalcost() {
-
+        let res = 0
+        {
+            this.props.tripl.map((item) =>
+                res = res + (item.distance * item.fuel_price)
+            )
+        }
+        return res;
     }
 
 
@@ -20,7 +26,7 @@ export default class Navbar extends Component {
                 <div class="card-body">
                     <a>Total Trips: {this.props.tripl.length}</a>
                     <br></br>
-                    <a>Total Cost: </a>
+                    <a>Total Cost: ${this.findtotalcost()}</a>
                 </div>
             </div>
         );
