@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import TotalResult from "./total-result.component";
+
 
 
 const Trip = props => (
@@ -91,7 +93,8 @@ export default class ListTrip extends Component {
                     </tbody>
                 </table>
                 {this.showAlert()}
-            </div>
+                <TotalResult tripl={this.state.trips} ></TotalResult>
+            </div >
         )
     }
 }
